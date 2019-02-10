@@ -11,8 +11,8 @@ const core = require('../core')
  *  DIFF  *
  *********/
 
-module.exports = async function diff(i, args) {
-  const file = regex = args[i + 1]
+module.exports = async function diff(b) {
+  const file = regex = b
   const binaryWarning = [
     chalk.yellow('Halting: It\'s a bad idea to diff binary files'),
     chalk.yellow('Binary file. Output not shown.')
@@ -33,6 +33,7 @@ module.exports = async function diff(i, args) {
 
   // if parameter is regex
   if (regex) {
+	  console.log('regex')
     const filterPattern = new RegExp(regex.trim())
 
     const handle = async diff => {
@@ -45,7 +46,7 @@ module.exports = async function diff(i, args) {
       const newline = () => {
         print(chalk.bold('-'.repeat(30)))
       }
-
+		
       for (let data of diff.modified) {
         print(chalk.cyan(chalk.inverse(data.fp, chalk.bold('% '))))
         if (data.isutf8) {

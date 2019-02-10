@@ -14,6 +14,7 @@ module.exports = async function state(){
   print(chalk.green(po.head, `(v${gl.vnorm(po.version)}/${latest})`))
 
   const handle = diff => {
+	  console.log(JSON.stringify(diff))
     const modified = diff.modified
     const added = diff.added
     const deleted = diff.deleted

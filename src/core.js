@@ -48,7 +48,7 @@ async function save({ head, mdata }) {
       await mod.metaOps.update(head, version, mdata)
       await fs.outputJson(mod.muOps.path('history', head, 'v' + version + '.json'), diff.currentTree)
       await po.incrementVersion()
-      print(chalk.green(`${head} v${version} successfully saved!`))
+      print(chalk.green(`${head} v${version} ${JSON.stringify(diff)} successfully saved!`))
     }
   }
   await _preCache()

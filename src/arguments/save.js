@@ -8,13 +8,13 @@ const stopwatch = require('../utils/timer')()
 *  SAVE  *
 *********/
 
-module.exports = async function save(i, args){
-  const msg = args[i + 1]
+module.exports = async function save(b){
+  const msg = b
   if(typeof msg === 'string' && msg.length > 0){
     stopwatch.start()
     const mdata = {msg}
     const result = await core.save({mdata})
-    stopwatch.stop()
+	stopwatch.stop()
     return result
   }
 

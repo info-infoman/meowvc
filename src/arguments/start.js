@@ -11,8 +11,8 @@ const gl = require('../constant')
  *  START  *
  **********/
 
-module.exports = async function start(i, args) {
-  const remoteName = args[i + 1]
+module.exports = async function start(b) {
+  const remoteName = b
   if (muOps.isPath) {
     print(chalk.yellow('Warning: repo already setup'))
     return gl.exit.cannotExe
